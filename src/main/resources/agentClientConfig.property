@@ -1,0 +1,5 @@
+#客户端标识
+agent.Client.info={aid:"A",name:"hello",common:"备注"}
+	
+#客户端会话存储路径,一定加下/
+file.storage.path=e:/temp/

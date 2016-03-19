@@ -11,7 +11,11 @@ import org.apache.logging.log4j.Logger;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.nio.SelectChannelConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
+import org.mortbay.resource.Resource;
 import org.mortbay.thread.QueuedThreadPool;
+
+import com.ai.platform.agent.web.util.MapBeanUtils;
+import com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolver;
 
 public class JettyServer {
 	public static Logger log = LogManager.getLogger(JettyServer.class);
@@ -22,16 +26,16 @@ public class JettyServer {
 	private JettyServerConfiguration configuration;
 
 	public JettyServer() {
-//		JettyServerConfiguration conf = new JettyServerConfiguration();
-//
-//		Resource rs = ResourceResolver.getResource(configuration);
-//		if (rs != null && rs.exists()) {
-//			conf.loadResource(rs);
-//		} else {
-//			log.warn(" is not found configuration jetty.properties:'" + configuration + "', the system will run in the default configuration. ");
-//		}
-//
-//		this.configuration = conf;
+		JettyServerConfiguration conf = new JettyServerConfiguration();
+		
+		MapBeanUtils.map2bean(conf, ConfigInit.serverConstant);
+		log.info("conf:----->"+conf.getConnectorHost());
+		log.info("conf:----->"+conf.getConnectorPort());
+		log.info("conf:----->"+conf.getConnectorAcceptors());
+		//
+		this.configuration = conf;
+		
+		
 	}
 
 	public JettyServer(JettyServerConfiguration configuration) {

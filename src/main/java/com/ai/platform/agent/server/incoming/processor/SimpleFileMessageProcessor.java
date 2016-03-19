@@ -1,0 +1,42 @@
+package com.ai.platform.agent.server.incoming.processor;
+
+import java.io.UnsupportedEncodingException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.ai.platform.agent.entity.SimpleFileReqInfo;
+import com.ai.platform.agent.exception.MessageParserException;
+import com.ai.platform.agent.processor.IMessageProcessor;
+import com.ai.platform.agent.util.ResultUtil;
+import com.alibaba.fastjson.JSONObject;
+
+import io.netty.channel.ChannelHandlerContext;
+
+/***
+ * 用于处理客户连接后的身份验证信息处理器
+ *
+ */
+public class SimpleFileMessageProcessor implements IMessageProcessor {
+
+	private String message;
+
+	static Logger logger = LogManager.getLogger(SimpleFileMessageProcessor.class);
+
+	@Override
+	public void init(byte[] msg) throws MessageParserException {
+		try {
+			message = new String(msg, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			logger.error("处理客户端命令执行结果转换异常,转义信息：{}", msg);
+			throw new MessageParserException("parse authInfo msg byte[] to string failure.", e);
+		}
+	}
+
+	@Override
+	public void proc(final ChannelHandlerContext ctx) {
+		SimpleFileReqInfo reciveMsg = JSONObject.parseObject(this.message, SimpleFileReqInfo.class);
+		logger.info("接收客户端返回信息：{}", reciveMsg);
+		ResultUtil.SIMP_FILE_MSG_MAP.put(reciveMsg.getKey(), reciveMsg);
+	}
+}
