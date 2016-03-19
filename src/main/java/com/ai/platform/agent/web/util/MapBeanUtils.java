@@ -1,10 +1,18 @@
 package com.ai.platform.agent.web.util;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MapBeanUtils {
+	public static Logger log = LogManager.getLogger(MapBeanUtils.class);
+			
 	public static Map<String, String> bean2map(Object javaBean) {
 		Map<String, String> result = new HashMap<String, String>();
 		Method[] methods = javaBean.getClass().getDeclaredMethods();
@@ -24,8 +32,17 @@ public class MapBeanUtils {
 		}
 		return result;
 	}
-	
+	/**
+	 * 
+	 * @Company asiainfo.com
+	 * @Author zhangzhongde
+	 * @Date 2016年3月19日 下午4:20:27
+	 * @Describtion 普通getter and setter方式 根据类型判断转换相应的属性信息
+	 */
 	public static void map2bean(Object javabean, Map<String, String> map) {
+//		for (Entry<String, String> entry : System.getenv().entrySet()) {
+//		  log.info("---->"+entry.getKey() + ": " + entry.getValue());
+//		}
 		Method[] methods = javabean.getClass().getDeclaredMethods();
 		for (Method method : methods) {
 			try {
@@ -64,5 +81,26 @@ public class MapBeanUtils {
 			}
 		}
 	}
+	/**
+	 * 
+	 * @Company asiainfo.com
+	 * @Author zhangzhongde
+	 * @Date 2016年3月19日 下午4:13:33
+	 * @Describtion 泛型实现map2bean
+	 */
+	public static <T> T map2Bean(Map<String, String> map, Class<T> beanClass) {  
+        T bean = null;  
+        try {  
+            bean = beanClass.newInstance();  
+            BeanUtils.populate(bean, map);  
+        } catch (InstantiationException e) {  
+            e.printStackTrace();  
+        } catch (IllegalAccessException e) {  
+            e.printStackTrace();  
+        } catch (InvocationTargetException e) {  
+            e.printStackTrace();  
+        }  
+        return bean;  
+    }  
 	
 }

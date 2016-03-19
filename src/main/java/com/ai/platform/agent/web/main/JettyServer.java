@@ -11,11 +11,9 @@ import org.apache.logging.log4j.Logger;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.nio.SelectChannelConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
-import org.mortbay.resource.Resource;
 import org.mortbay.thread.QueuedThreadPool;
 
 import com.ai.platform.agent.web.util.MapBeanUtils;
-import com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolver;
 
 public class JettyServer {
 	public static Logger log = LogManager.getLogger(JettyServer.class);
@@ -27,8 +25,8 @@ public class JettyServer {
 
 	public JettyServer() {
 		JettyServerConfiguration conf = new JettyServerConfiguration();
-		
-		MapBeanUtils.map2bean(conf, ConfigInit.serverConstant);
+		conf = MapBeanUtils.map2Bean(ConfigInit.serverConstant, JettyServerConfiguration.class);
+		//MapBeanUtils.map2bean(conf, ConfigInit.serverConstant);
 		log.info("conf:----->"+conf.getConnectorHost());
 		log.info("conf:----->"+conf.getConnectorPort());
 		log.info("conf:----->"+conf.getConnectorAcceptors());

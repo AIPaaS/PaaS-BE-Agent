@@ -30,10 +30,10 @@ public class ConfigInit {
 					keyStr = ((String)tmpEntry.getKey()).substring("jetty.".length());
 				}
 				serverConstant.put(keyStr, (String) tmpEntry.getValue());
-				logger.info("初始化key[{}]的值为{{}}", (String) keyStr, (String) tmpEntry.getValue());
+				logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
 			}
 		} catch (IOException e) {
-			logger.error("{}配置文件读取异常");
+			logger.error("{} config properties read exception !!!");
 			e.printStackTrace();
 		}
 	}
