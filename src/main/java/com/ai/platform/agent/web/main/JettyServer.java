@@ -20,7 +20,7 @@ import com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolver;
 public class JettyServer {
 	public static Logger log = LogManager.getLogger(JettyServer.class);
 
-	public static final String DEFAULT_WEB = "binary/jetty/web-default.xml";
+	//public static final String DEFAULT_WEB = "binary/jetty/web-default.xml";
 
 	/** 服务器配置信息 **/
 	private JettyServerConfiguration configuration;
@@ -148,9 +148,9 @@ public class JettyServer {
 		String webAppRoots = configuration.getWebAppRoots();
 		String webAppWars = configuration.getWebAppWars();
 
-		String defaultDescriptor = configuration.getWebAppDefaultDescriptor();
-		if (defaultDescriptor == null || "".equals(defaultDescriptor.trim()))
-			defaultDescriptor = DEFAULT_WEB;
+		//String defaultDescriptor = configuration.getWebAppDefaultDescriptor();
+//		if (defaultDescriptor == null || "".equals(defaultDescriptor.trim()))
+//			defaultDescriptor = DEFAULT_WEB;
 		Set<String> contextPathSet = new HashSet<String>();
 
 		if (webAppRoots != null && (webAppRoots = webAppRoots.trim()).length() > 0) {
@@ -186,7 +186,7 @@ public class JettyServer {
 				contextPath = effectiveContextPath(contextPath);
 
 				WebAppContext context = new WebAppContext(appRoot, contextPath);
-				context.setDefaultsDescriptor(defaultDescriptor);
+				//context.setDefaultsDescriptor(defaultDescriptor);
 
 				char last = appRoot.charAt(appRoot.length() - 1);
 				if (last != '/' && last != '\\')
@@ -242,7 +242,7 @@ public class JettyServer {
 
 				WebAppContext context = new WebAppContext();
 				context.setContextPath(contextPath);
-				context.setDefaultsDescriptor(defaultDescriptor);
+				//context.setDefaultsDescriptor(defaultDescriptor);
 				context.setWar(appWar);
 
 				contextList.add(context);
