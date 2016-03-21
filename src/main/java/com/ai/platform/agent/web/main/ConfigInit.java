@@ -28,9 +28,10 @@ public class ConfigInit {
 			for (Entry<Object, Object> tmpEntry : p.entrySet()) {
 				if(((String)tmpEntry.getKey()).startsWith("jetty")){
 					keyStr = ((String)tmpEntry.getKey()).substring("jetty.".length());
+					serverConstant.put(keyStr, (String) tmpEntry.getValue());
+					logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
+				
 				}
-				serverConstant.put(keyStr, (String) tmpEntry.getValue());
-				logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
 			}
 		} catch (IOException e) {
 			logger.error("{} config properties read exception !!!");
