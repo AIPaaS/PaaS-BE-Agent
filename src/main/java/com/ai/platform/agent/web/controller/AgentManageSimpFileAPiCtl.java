@@ -41,7 +41,7 @@ public class AgentManageSimpFileAPiCtl {
 	 */
 	@RequestMapping(value = "/upload")
 	@ResponseBody
-	public String initCommandSession(String jsonStr) {
+	public String initCommandSession(@RequestBody String jsonStr) {
 		SimpleFileReqInfo sendMsg = convertJSON(jsonStr);
 		
 		String key = sendMsg.getKey();
