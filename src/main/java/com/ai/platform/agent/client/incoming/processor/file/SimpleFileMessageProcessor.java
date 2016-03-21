@@ -30,7 +30,7 @@ public class SimpleFileMessageProcessor extends AbstractSimpleFileProcessor {
 		String message = super.command.getMessage();
 		SimpleFileReqInfo msgInfo = JSON.parseObject(message, SimpleFileReqInfo.class);
 
-		logger.info("服务端发来指令，内容：{}", super.command.getMessage());
+		logger.info("Server sends instruction ,content:{}", super.command.getMessage());
 
 		try {
 			// 保存文件。目前默认覆盖，以后可扩展为追加，删除……
@@ -46,13 +46,14 @@ public class SimpleFileMessageProcessor extends AbstractSimpleFileProcessor {
 			o.close();
 
 			msgInfo.setCode("0");
-			msgInfo.setMsg("执行成功");
-			logger.info("执行结果：{}", msgInfo);
+			msgInfo.setMsg("Implementation success");
+			logger.info("msgInfo:"+msgInfo);
+			logger.info("Results of enforcement:{}", msgInfo);
 
 		} catch (Exception e) {
-			logger.error("执行命令发生异常", e);
+			logger.error("Execute command exception", e);
 			msgInfo.setCode("1");
-			msgInfo.setMsg("写入文件失败");
+			msgInfo.setMsg("Writer file failed !!!");
 		} finally{
 			byte[] contentArray = ByteArrayUtil.mergeByteArray(AgentServerCommandConstant.PACKAGE_TYPE_SIMP_FILE_COMMAND,
 					JSON.toJSONString(msgInfo).getBytes());
