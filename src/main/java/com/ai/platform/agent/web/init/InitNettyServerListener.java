@@ -17,7 +17,7 @@ public class InitNettyServerListener implements ServletContextListener {
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		server.destroy();
-		logger.info("停止netty服务器完成...");
+		logger.info("Stop netty server finished [Stoped]...");
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class InitNettyServerListener implements ServletContextListener {
 				server.start();
 			}
 		}.start();
-		logger.info("启动netty服务器完成...");
+		logger.info("Start netty server finished [Started]...");
 	}
 
 }
