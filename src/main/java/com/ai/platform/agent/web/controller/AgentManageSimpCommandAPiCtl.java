@@ -49,7 +49,7 @@ public class AgentManageSimpCommandAPiCtl {
 	 */
 	@RequestMapping(value = "/exec")
 	@ResponseBody
-	public String execCommand( String jsonStr) throws Exception {
+	public String execCommand(@RequestBody String jsonStr) throws Exception {
 		SimpleCommandReqInfo commadInfo = convertJSON(jsonStr);
 		
 		String key = commadInfo.getKey();
