@@ -36,7 +36,7 @@ public class SimpleCommandMessageProcessor implements IMessageProcessor {
 	@Override
 	public void proc(final ChannelHandlerContext ctx) {
 		SimpleCommandReqInfo reciveMsg = JSONObject.parseObject(this.message, SimpleCommandReqInfo.class);
-		logger.info("接收客户端返回信息：{}", reciveMsg);
+		logger.info("Receive client response info:{}", reciveMsg);
 		ResultUtil.SIMP_COMMAND_MSG_MAP.put(reciveMsg.getKey(), reciveMsg);
 	}
 }
