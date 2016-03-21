@@ -20,8 +20,9 @@ public class AuthDataPacket implements IDataPacket {
 	public static Logger logger = LogManager.getLogger(AuthDataPacket.class);
 
 	@Override
-	public byte[] genDataPacket(byte[] msg) throws AgentServerException {
-		String agentClientInfo = AgentClientInit.clientConstant.get(AgentConstant.AGENT_CLIENT_INFO);
+	public byte[] genDataPacket(byte[] msg,String agentClientInfo) throws AgentServerException {
+		//
+		//String agentClientInfo = AgentClientInit.clientConstant.get(AgentConstant.AGENT_CLIENT_INFO);
 		if (Strings.isNullOrEmpty(agentClientInfo)) {
 			logger.error("配置文件中缺少{}信息", AgentConstant.AGENT_CLIENT_INFO);
 			throw new AgentServerException("配置文件中缺少" + AgentConstant.AGENT_CLIENT_INFO + "信息");
