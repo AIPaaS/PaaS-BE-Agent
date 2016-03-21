@@ -42,7 +42,7 @@ public class AuthMessageProcessor implements IMessageProcessor {
 		authChannel.setAuthJson(authJson);
 		authChannel.setCtx(ctx);
 		ChannelCollectionUtil.ctxMap.put(Pid, authChannel);
-		logger.info("agent客户端[{}]上线,身份信息：[{}],channel信息：{}", authJson.getString(AgentConstant.CHANNEL_SHOW_KEY),
+		logger.info("agent client [{}]online,auth info:[{}],channel info:{}", authJson.getString(AgentConstant.CHANNEL_SHOW_KEY),
 				authJson, ctx.channel().remoteAddress());
 	}
 }
