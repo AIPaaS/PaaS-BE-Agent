@@ -36,7 +36,7 @@ public class SimpleFileMessageProcessor implements IMessageProcessor {
 	@Override
 	public void proc(final ChannelHandlerContext ctx) {
 		SimpleFileReqInfo reciveMsg = JSONObject.parseObject(this.message, SimpleFileReqInfo.class);
-		logger.info("接收客户端返回信息：{}", reciveMsg);
+		logger.info("Receive client response info:{}", reciveMsg);
 		ResultUtil.SIMP_FILE_MSG_MAP.put(reciveMsg.getKey(), reciveMsg);
 	}
 }
