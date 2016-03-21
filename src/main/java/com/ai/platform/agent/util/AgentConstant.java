@@ -2,9 +2,9 @@ package com.ai.platform.agent.util;
 
 public class AgentConstant {
 
-	public static final String AGENT_CONFIG_FILE_NAME = "agentConfig.property";
+	public static final String AGENT_CONFIG_FILE_NAME = "jetty.properties";//"agentConfig.property";
 	
-	public static final String AGENT_CLIENT_CONFIG_FILE_NAME = "agentClientConfig.property";
+	public static final String AGENT_CLIENT_CONFIG_FILE_NAME = "jetty.properties";//"agentClientConfig.property";
 	
 	public static final String AGENT_TIMEOUT= "agent.timeout";
 
