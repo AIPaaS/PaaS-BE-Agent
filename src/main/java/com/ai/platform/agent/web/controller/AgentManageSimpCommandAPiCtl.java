@@ -64,7 +64,7 @@ public class AgentManageSimpCommandAPiCtl {
 		} catch (Exception e) {
 			ResultMessageMVO re = new ResultMessageMVO(ResultCodeConstants.FAIL, e.getMessage());
 			result = JSON.toJSONString(re);
-			logger.error("operating {}", e);
+			logger.error("Operation failed {}", e);
 		}
 		return result;
 	}

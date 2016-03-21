@@ -56,7 +56,7 @@ public class AgentManageSimpFileAPiCtl {
 		} catch (Exception e) {
 			SimpleFileResInfo re = new SimpleFileResInfo(ResultCodeConstants.FAIL, e.getMessage());
 			result = JSON.toJSONString(re);
-			logger.error("操作失败{}", e);
+			logger.error("Operation failed {}", e);
 		}
 		return result;
 	}
