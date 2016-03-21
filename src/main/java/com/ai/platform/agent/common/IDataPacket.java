@@ -10,6 +10,6 @@ public interface IDataPacket {
 	 * @return
 	 * @throws AgentServerException
 	 */
-	public byte[] genDataPacket(byte[] msg) throws AgentServerException;
+	public byte[] genDataPacket(byte[] msg,String agentClientInfo) throws AgentServerException;
 	
 }
