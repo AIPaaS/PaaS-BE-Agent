@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.ai.platform.agent.client.incoming.AgentClientInitializer;
 import com.ai.platform.agent.client.outgoing.AuthDataPacket;
 import com.ai.platform.agent.client.util.ShellChannelCollectionUtil;
+import com.ai.platform.agent.entity.AgentConfigInfoServer;
 import com.ai.platform.agent.exception.AgentServerException;
 import com.ai.platform.agent.util.AgentConstant;
 import com.ai.platform.agent.util.ConfigInit;
@@ -21,8 +22,10 @@ public class ClientMain {
 	static Logger logger = LogManager.getLogger(ClientMain.class);
 
 	public static void main(String[] args) throws AgentServerException {
-		String serverAddr = ConfigInit.serverConstant.get(AgentConstant.SERVER_IP);
-		int port = Integer.valueOf(ConfigInit.serverConstant.get(AgentConstant.SERVER_PORT));
+		AgentConfigInfoServer agentConfigInfoServer = new AgentConfigInfoServer();
+		//
+		String serverAddr = agentConfigInfoServer.getAgentConfigInfo().getAgentServerIp();//ConfigInit.serverConstant.get(AgentConstant.SERVER_IP);
+		int port = Integer.valueOf(agentConfigInfoServer.getAgentConfigInfo().getAgentServerPort());//Integer.valueOf(ConfigInit.serverConstant.get(AgentConstant.SERVER_PORT));
 		while (true) {
 			EventLoopGroup group = new NioEventLoopGroup();
 			Bootstrap bootstrap = new Bootstrap();
@@ -34,9 +37,12 @@ public class ClientMain {
 				channelFuture.sync();
 				// 向服务器发送身份验证信息
 				AuthDataPacket adp = new AuthDataPacket();
-				byte[] authPacket = adp.genDataPacket(null);
+				//
+				String agentClientInfo = agentConfigInfoServer.getAgentConfigInfo().getAgentClientInfo();
+				//
+				byte[] authPacket = adp.genDataPacket(null,agentClientInfo);
 				channelFuture.channel().writeAndFlush(authPacket);
-				logger.info("agent客户端[{}]发起上线操作，发送身份验证信息：{}",
+				logger.info("agent client [{}] Launch on-line operation , Send authentication information：{}",
 						adp.getAuthJson().getString(AgentConstant.CHANNEL_SHOW_KEY), adp.getAuthJson());
 				channelFuture.channel().closeFuture().sync();
 			} catch (Exception e) {
