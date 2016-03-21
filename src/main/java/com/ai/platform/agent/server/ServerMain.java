@@ -3,6 +3,7 @@ package com.ai.platform.agent.server;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.ai.platform.agent.entity.AgentConfigInfoServer;
 import com.ai.platform.agent.server.incoming.AgentServerInitializer;
 import com.ai.platform.agent.util.AgentConstant;
 import com.ai.platform.agent.util.ConfigInit;
@@ -37,9 +38,11 @@ public class ServerMain {
 	}
 
 	public void start() {
-		String serverAddr = ConfigInit.serverConstant.get(AgentConstant.SERVER_IP);
-		int port = Integer.valueOf(ConfigInit.serverConstant.get(AgentConstant.SERVER_PORT));
-
+		AgentConfigInfoServer agentConfigInfoServer = new AgentConfigInfoServer();
+		//
+		String serverAddr = agentConfigInfoServer.getAgentConfigInfo().getAgentServerIp();//ConfigInit.serverConstant.get(AgentConstant.SERVER_IP);
+		int port = Integer.valueOf(agentConfigInfoServer.getAgentConfigInfo().getAgentServerPort());//Integer.valueOf(ConfigInit.serverConstant.get(AgentConstant.SERVER_PORT));
+		
 		try {
 			ServerBootstrap b = new ServerBootstrap();
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 100)
