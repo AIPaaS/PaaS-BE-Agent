@@ -13,7 +13,7 @@ import org.mortbay.jetty.nio.SelectChannelConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
 import org.mortbay.thread.QueuedThreadPool;
 
-import com.ai.platform.agent.web.util.MapBeanUtils;
+import com.ai.platform.agent.util.MapBeanUtils;
 
 public class JettyServer {
 	public static Logger log = LogManager.getLogger(JettyServer.class);
