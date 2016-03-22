@@ -90,7 +90,7 @@ public class SimpFileCommandSer {
 			reMsg = new SimpleFileResInfo(result.getCode(), result.getMsg());
 			ResultUtil.SIMP_FILE_MSG_MAP.remove(key);
 		} else {
-			reMsg = new SimpleFileResInfo(ResultCodeConstants.FAIL, "连接超时");
+			reMsg = new SimpleFileResInfo(ResultCodeConstants.FAIL, "Link timeout....");
 		}
 
 		return JSON.toJSONString(reMsg);

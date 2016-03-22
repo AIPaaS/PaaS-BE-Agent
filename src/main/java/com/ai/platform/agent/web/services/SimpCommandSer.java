@@ -80,7 +80,7 @@ public class SimpCommandSer {
 			reMsg = new SimpleCommandResInfo(result.getCode(), result.getMsg());
 			ResultUtil.SIMP_COMMAND_MSG_MAP.remove(key);
 		} else {
-			reMsg = new SimpleCommandResInfo(ResultCodeConstants.FAIL, "连接超时");
+			reMsg = new SimpleCommandResInfo(ResultCodeConstants.FAIL, "Link timeout....");
 		}
 
 		return JSON.toJSONString(reMsg);
