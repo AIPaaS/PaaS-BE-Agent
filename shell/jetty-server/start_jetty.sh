@@ -22,5 +22,5 @@ done
 
 echo $CP
 
-nohup ${JAVA_HOME}/bin/java -classpath $CONF_DIR:$CP hb.jetty.JettyServer $1 &
+nohup ${JAVA_HOME}/bin/java -classpath $CONF_DIR:$CP com.ai.platform.agent.web.main.JettyMain $1 &
 
