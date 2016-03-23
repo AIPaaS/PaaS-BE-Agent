@@ -1,7 +1,0 @@
-#服务端、客户端复用此文件
-#server端地址
-server.ip=10.1.241.127
-#服务端监控端口
-server.port=8888
-#单位秒
-agent.timeout=60

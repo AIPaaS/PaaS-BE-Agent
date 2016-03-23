@@ -14,7 +14,7 @@ import org.mortbay.jetty.webapp.WebAppContext;
 import org.mortbay.thread.QueuedThreadPool;
 
 import com.ai.platform.agent.util.MapBeanUtils;
-
+import com.ai.platform.agent.util.ConfigInit;
 public class JettyServer {
 	public static Logger log = LogManager.getLogger(JettyServer.class);
 

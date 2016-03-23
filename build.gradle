@@ -21,7 +21,7 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
     
 	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.7'
-	compile group: 'io.netty', name: 'netty-all', version: '4.0.33.Final'
+	compile group: 'io.netty', name: 'netty-all', version: '4.0.32.Final'
 	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.4.1'
 	
 	

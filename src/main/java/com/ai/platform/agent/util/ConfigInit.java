@@ -34,6 +34,11 @@ public class ConfigInit {
 					keyStr = ((String)tmpEntry.getKey()).substring("client.".length());
 					serverConstant.put(keyStr, (String) tmpEntry.getValue());
 					logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
+				}else if(((String)tmpEntry.getKey()).startsWith("jetty")){
+					keyStr = ((String)tmpEntry.getKey()).substring("jetty.".length());
+					serverConstant.put(keyStr, (String) tmpEntry.getValue());
+					logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
+				
 				}
 			}
 		} catch (IOException e) {
