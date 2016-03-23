@@ -19,12 +19,12 @@ public class HttpClientTest {
 	@Test
 	public void simpFileUpload(){
 		//
-		String url = "http://10.1.245.249:29806/agent-web-api/simpFile/upload";
+		//String url = "http://10.1.245.249:29806/agent-web-api/simpFile/upload";
 		//String url = "http://10.1.241.125:16204/platform.agent.web/simpFile/upload";
-		//String url = "http://10.1.241.130:16204/agent-web-api/simpFile/upload";
+		String url = "http://10.1.241.125:16204/agent-web-api/simpFile/upload";
 		//simpFile/upload
 		UploadBean uploadBean = new UploadBean();
-		uploadBean.setAid("133");
+		uploadBean.setAid("A");
 		uploadBean.setContent("echo 12343243243233333333fdsafsafsafsafs3333333333333333333");
 		uploadBean.setFileName("zhangzhongde.log");
 		uploadBean.setPath("/root");
@@ -35,12 +35,12 @@ public class HttpClientTest {
 	@Test
 	public void simpCommandExec(){
 		//
-		String url = "http://10.1.245.249:29806/agent-web-api/simpCommand/exec";
+		//String url = "http://10.1.245.249:29806/agent-web-api/simpCommand/exec";
 		//String url = "http://10.1.241.125:16204/platform.agent.web/simpCommand/exec";
-		//String url = "http://10.1.241.130:16204/agent-web-api/simpCommand/exec";
+		String url = "http://10.1.241.125:16204/agent-web-api/simpCommand/exec";
 		//simpFile/upload
 		CommandBean commandBean = new CommandBean();
-		commandBean.setAid("133");
+		commandBean.setAid("A");
 		commandBean.setCommand("chmod u+x /root/zhangzhongde.log");
 		//
 		JSONObject jsonObject = HttpXmlClient.doPost(url, JSONObject.parseObject(JSON.toJSONString(commandBean)));
