@@ -49,7 +49,8 @@ task cleanTempDir(type: Delete) {
 task copyConfig(type: Copy) {
 	from( 'build/resources/main')  
     into( 'build/agent-client-new/conf')  
-    include('jetty.properties') 
+    include('jetty.properties')
+    include('log4j2.xml') 
 }
 
 task copyBin(type: Copy) {
@@ -74,6 +75,7 @@ task jetty_copyConfig(type: Copy) {
 	from( 'build/resources/main')  
     into( 'build/jetty-server-new/conf')  
     include('jetty.properties')
+    include('log4j2.xml')
 }
 
 task jetty_copyBin(type: Copy) {
