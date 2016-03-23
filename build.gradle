@@ -158,6 +158,8 @@ task tar(type: Tar) {
 	exclude 'resources'
 	exclude 'libs'
 	exclude 'tmp'
+	exclude 'reports'
+	exclude 'test-results'
 	}
     
 } 
