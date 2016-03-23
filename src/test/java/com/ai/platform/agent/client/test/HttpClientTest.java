@@ -3,15 +3,15 @@ package com.ai.platform.agent.client.test;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sun.istack.internal.logging.Logger;
 
 public class HttpClientTest {
-	private static Logger log = Logger.getLogger(HttpClientTest.class);
+	private static Logger log = LogManager.getLogger(HttpClientTest.class);
 	/**
 	 * @author zhangzhongde
 	 * @date 2013-03-19

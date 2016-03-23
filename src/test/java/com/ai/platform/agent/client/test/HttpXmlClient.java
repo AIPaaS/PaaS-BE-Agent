@@ -23,13 +23,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;  
 import org.apache.http.protocol.HTTP;  
 import org.apache.http.util.EntityUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.istack.internal.logging.Logger;  
 
 public class HttpXmlClient {
 
-	 private static Logger log = Logger.getLogger(HttpXmlClient.class);  
+	 private static Logger log = LogManager.getLogger(HttpXmlClient.class);  
      
 	    public static String post(String url, Map<String, String> params) {  
 	        DefaultHttpClient httpclient = new DefaultHttpClient();  
