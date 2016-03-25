@@ -39,6 +39,11 @@ public class ConfigInit {
 					serverConstant.put(keyStr, (String) tmpEntry.getValue());
 					logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
 				
+				}else if(((String)tmpEntry.getKey()).startsWith("web")){
+					keyStr = ((String)tmpEntry.getKey()).substring("web.".length());
+					serverConstant.put(keyStr, (String) tmpEntry.getValue());
+					logger.info("init key[{}] value {{}}", (String) keyStr, (String) tmpEntry.getValue());
+				
 				}
 			}
 		} catch (IOException e) {
