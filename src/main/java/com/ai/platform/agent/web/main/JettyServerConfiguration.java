@@ -100,6 +100,15 @@ public class JettyServerConfiguration implements Serializable {
 
 	// -- end
 	// -------------------------------------------------------------------------------------------------------------------------
+	private Integer timeOutSec; 
+	
+	public Integer getTimeOutSec() {
+		return timeOutSec;
+	}
+
+	public void setTimeOutSec(Integer timeOutSec) {
+		this.timeOutSec = timeOutSec;
+	}
 
 	public JettyServerConfiguration() {
 	}
