@@ -13,7 +13,10 @@ import com.ai.platform.agent.server.entity.AuthChannelInfo;
 import com.ai.platform.agent.server.util.ChannelCollectionUtil;
 import com.ai.platform.agent.util.AgentServerCommandConstant;
 import com.ai.platform.agent.util.ByteArrayUtil;
+import com.ai.platform.agent.util.ConfigInit;
+import com.ai.platform.agent.util.MapBeanUtils;
 import com.ai.platform.agent.util.ResultUtil;
+import com.ai.platform.agent.web.main.JettyServerConfiguration;
 import com.ai.platform.agent.web.util.AgentWebConstants;
 import com.ai.platform.agent.web.util.ResultCodeConstants;
 import com.alibaba.fastjson.JSON;
@@ -75,10 +78,13 @@ public class SimpFileCommandSer {
 		String key = commandInfo.getKey();
 
 		int times = 1;
-
+		//
+		JettyServerConfiguration conf = new JettyServerConfiguration();
+		conf = MapBeanUtils.map2Bean(ConfigInit.serverConstant, JettyServerConfiguration.class);
+		//
 		while (!ResultUtil.SIMP_FILE_MSG_MAP.containsKey(key)) {
 			Thread.sleep(AgentWebConstants.retrySleepTime);
-			if (AgentWebConstants.timeOutSec < times * AgentWebConstants.retrySleepTime) {
+			if (conf.getTimeOutSec() < times * AgentWebConstants.retrySleepTime) {
 				break;
 			}
 			times++;
