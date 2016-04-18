@@ -1,0 +1,66 @@
+﻿|-1
+  |-1.1
+  |-1.2
+|-2
+  |-2.1
+  |-2.2
+
+
+源代码上传：
+
+Param：	String uri  例：http://host:port/xx/（端口应该默认或者服务端告知）
+	String compileHostDir  编译主机源代码目录
+	List<String> srcPathList  需要更新的源代码文件绝对路径集合
+
+Return：若成功无返回  若失败抛异常
+	
+
+
+
+源代码编译：
+	
+Param：	String uri  	       例：http://host:port/xx/（端口应该默认或者服务端告知）
+	String shellContent    编译脚本（命令行） 会将源代码编译结果分别放到相应目录下
+			       即：$AIOSS_HOME/bin和$AIOSS_HOME/lib下，而且此时部署
+			       人员知道编译结果是什么
+
+	List<String> exeList   $AIOSS_HOME/bin目录下的可执行程序名字的集合
+	List<String> libList   $AIOSS_HOME/lib目录下的动态库名字的集合
+
+	
+Return: 
+
+	若成功无返回  若失败抛异常
+	
+
+
+
+分发编译结果：
+
+Param： String[] uri  例：http://host:port/xx/（端口应该默认或者服务端告知） 
+		      目标主机IP（端口应该默认或者服务端告知）
+		      在目标主机上的可执行程序和动态库存放位置相同
+		      均为$AIOSS_HOME/bin和$AIOSS_HOME/lib
+
+	List<String> exePathList  web服务器上要分发的可执行程序的绝对路径集合
+	List<String> libPathList  web服务器上要分发的动态库的绝对路径集合
+	
+
+Return：
+	若成功无返回  若失败抛异常
+
+
+
+FileApplication
+	| - SrcFileServerResource
+	|	      | - post (源文件上传）
+	| 	      
+	| - CompFileServerResource
+	|	      | - post (源文件编译）
+	|	      | - get (下载编译结果）
+	|
+	| - DistributeServerResource
+	|	      | - post (分发编译结果）	
+
+
+
