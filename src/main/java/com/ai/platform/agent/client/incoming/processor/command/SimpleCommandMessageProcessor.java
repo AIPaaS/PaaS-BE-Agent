@@ -41,8 +41,9 @@ public class SimpleCommandMessageProcessor extends
 		// 下面应该放到一个线程中执行
 		try {
 
-			Process pro = Runtime.getRuntime().exec(
-					"/bin/sh -c \"" + msgInfo.getCommand() + "\"");
+			Process pro = Runtime.getRuntime()
+					.exec(new String[] { "/bin/sh", "-l", "-c",
+							msgInfo.getCommand() });
 			@SuppressWarnings("unused")
 			int exitVal = pro.waitFor();
 
