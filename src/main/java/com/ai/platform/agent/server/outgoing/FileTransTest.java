@@ -8,10 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.util.UuidUtil;
 
-import com.ai.platform.agent.entity.AgentSSHInfo;
 import com.ai.platform.agent.entity.AgentSftpInfo;
 import com.ai.platform.agent.entity.HostFileInfo;
-import com.ai.platform.agent.entity.HostInfo;
 import com.ai.platform.agent.server.entity.AuthChannelInfo;
 import com.ai.platform.agent.server.util.ChannelCollectionUtil;
 import com.ai.platform.agent.util.AgentServerCommandConstant;
@@ -42,11 +40,15 @@ public class FileTransTest {
 							logger.info("未发现客户端连接");
 						}
 						UUID id = UuidUtil.getTimeBasedUuid();
+						@SuppressWarnings("static-access")
 						String uid = id.randomUUID().toString().replaceAll("-", "");
+						@SuppressWarnings("static-access")
 						String sid = id.randomUUID().toString().replaceAll("-", "");
+						@SuppressWarnings("static-access")
 						String fid = id.randomUUID().toString().replaceAll("-", "");
 
 						JSch jsch = new JSch();
+						@SuppressWarnings("unused")
 						long startTime = System.currentTimeMillis();
 
 						String host = "10.1.235.197";

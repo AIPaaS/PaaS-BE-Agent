@@ -36,6 +36,7 @@ public class CloseFileCommandMessageProcessor extends AbstractFileProcessor {
 		String sid = super.command.getSid();
 		String fid = super.command.getFid();
 		String key = sid;
+		@SuppressWarnings("unused")
 		String fkey = fid;
 
 		if (!ShellChannelCollectionUtil.userChannelMap.containsKey(key)) {

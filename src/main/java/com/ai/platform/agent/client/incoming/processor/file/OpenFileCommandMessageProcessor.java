@@ -36,6 +36,7 @@ public class OpenFileCommandMessageProcessor extends AbstractFileProcessor {
 		String fid = super.command.getFid();
 
 		String key = sid;
+		@SuppressWarnings("unused")
 		String fkey = fid;
 		try {
 

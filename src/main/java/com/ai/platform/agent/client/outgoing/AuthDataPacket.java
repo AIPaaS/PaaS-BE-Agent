@@ -3,13 +3,11 @@ package com.ai.platform.agent.client.outgoing;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.ai.platform.agent.client.util.AgentClientInit;
 import com.ai.platform.agent.common.IDataPacket;
 import com.ai.platform.agent.exception.AgentServerException;
 import com.ai.platform.agent.util.AgentClientCommandConstant;
 import com.ai.platform.agent.util.AgentConstant;
 import com.ai.platform.agent.util.ByteArrayUtil;
-import com.ai.platform.agent.util.ConfigInit;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Strings;
 

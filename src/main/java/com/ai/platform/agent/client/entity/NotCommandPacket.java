@@ -9,6 +9,7 @@ public class NotCommandPacket {
 
 	public static Logger logger = LogManager.getLogger(NotCommandPacket.class);
 
+	@SuppressWarnings("unused")
 	private String message;
 
 	public void init(byte[] msg) throws MessageParserException {

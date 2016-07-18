@@ -1,7 +1,5 @@
 package com.ai.platform.agent.web.services;
 
-import java.util.UUID;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.util.Strings;
@@ -9,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.ai.platform.agent.entity.SimpleCommandReqInfo;
 import com.ai.platform.agent.entity.SimpleCommandResInfo;
-import com.ai.platform.agent.entity.SimpleFileResInfo;
 import com.ai.platform.agent.server.entity.AuthChannelInfo;
 import com.ai.platform.agent.server.util.ChannelCollectionUtil;
 import com.ai.platform.agent.util.AgentServerCommandConstant;

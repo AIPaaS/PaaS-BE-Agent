@@ -27,6 +27,7 @@ public class SessionTest {
 			e1.printStackTrace();
 		}
 		new Thread() {
+			@SuppressWarnings("static-access")
 			public void run() {
 				while (true) {
 					try {

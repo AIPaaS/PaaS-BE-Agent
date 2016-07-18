@@ -1,5 +1,12 @@
 package com.ai.platform.agent.client;
 
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioSocketChannel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,14 +16,6 @@ import com.ai.platform.agent.client.util.ShellChannelCollectionUtil;
 import com.ai.platform.agent.entity.AgentConfigInfoServer;
 import com.ai.platform.agent.exception.AgentServerException;
 import com.ai.platform.agent.util.AgentConstant;
-import com.ai.platform.agent.util.ConfigInit;
-
-import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class ClientMain {
 	static Logger logger = LogManager.getLogger(ClientMain.class);

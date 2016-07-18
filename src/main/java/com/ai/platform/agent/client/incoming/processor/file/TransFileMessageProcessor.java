@@ -25,13 +25,16 @@ public class TransFileMessageProcessor extends AbstractFileProcessor {
 
 	@Override
 	public void proc(ChannelHandlerContext ctx) throws AgentServerException {
+		@SuppressWarnings("unused")
 		String uid = super.command.getUid();
 		String sid = super.command.getSid();
 		String fid = super.command.getFid();
+		@SuppressWarnings("unused")
 		String command = super.command.getMessage();
 		logger.info("服务端发来指令，内容大小：{}", super.command.getDataByteArray().length);
 
 		String key = sid;
+		@SuppressWarnings("unused")
 		String skey = fid;
 		if (!ShellChannelCollectionUtil.userChannelMap.containsKey(key)) {
 			throw new AgentServerException("当前会话容器未找到sid:{}的会话信息");

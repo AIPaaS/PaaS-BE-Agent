@@ -13,6 +13,7 @@ public class UserSessionInfo {
 	
 	private long timeout;
 	
+	@SuppressWarnings("unused")
 	private long startTime;
 	
 	public UserSessionInfo(){

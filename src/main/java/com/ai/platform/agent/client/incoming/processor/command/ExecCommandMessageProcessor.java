@@ -27,6 +27,7 @@ public class ExecCommandMessageProcessor extends AbstractSimpleCommandProcessor 
 		String message = super.command.getMessage();
 		SimpleCommandReqInfo msgInfo = JSON.parseObject(message, SimpleCommandReqInfo.class);
 
+		@SuppressWarnings("unused")
 		String command = msgInfo.getCommand();
 		logger.info("服务端发来指令，内容：{}", super.command.getMessage());
 

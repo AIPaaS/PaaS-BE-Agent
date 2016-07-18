@@ -1,13 +1,5 @@
 package com.ai.platform.agent.server;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.ai.platform.agent.entity.AgentConfigInfoServer;
-import com.ai.platform.agent.server.incoming.AgentServerInitializer;
-import com.ai.platform.agent.util.AgentConstant;
-import com.ai.platform.agent.util.ConfigInit;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -17,6 +9,12 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.ai.platform.agent.entity.AgentConfigInfoServer;
+import com.ai.platform.agent.server.incoming.AgentServerInitializer;
+
 public class ServerMain {
 	public static Logger logger = LogManager.getLogger(ServerMain.class);
 
@@ -24,6 +22,7 @@ public class ServerMain {
 
 	private EventLoopGroup bossGroup = new NioEventLoopGroup();
 	private EventLoopGroup workerGroup = new NioEventLoopGroup();
+	@SuppressWarnings("unused")
 	private boolean isStartUp = false;
 
 	private ServerMain() {

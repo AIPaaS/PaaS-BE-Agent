@@ -37,6 +37,7 @@ public class CommandMessageProcessor implements IMessageProcessor {
 	public void proc(final ChannelHandlerContext ctx) {
 		Server2ClientMsgMVO reciveMsg = JSONObject.parseObject(this.message, Server2ClientMsgMVO.class);
 		
+		@SuppressWarnings("unused")
 		ShellCommandMVO commanInfo = reciveMsg.getCommandInfo();
 		
 		// TODO 调回调接口
